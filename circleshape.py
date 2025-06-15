@@ -1,8 +1,9 @@
-import pygame
+from pygame.sprite import Sprite
+from pygame import Vector2
 
 
 # Base class for game objects
-class CircleShape(pygame.sprite.Sprite):
+class CircleShape(Sprite):
     def __init__(self, x, y, radius):
         # we will be using this later
         if hasattr(self, "containers"):
@@ -10,8 +11,8 @@ class CircleShape(pygame.sprite.Sprite):
         else:
             super().__init__()
 
-        self.position = pygame.Vector2(x, y)
-        self.velocity = pygame.Vector2(0, 0)
+        self.position = Vector2(x, y)
+        self.velocity = Vector2(0, 0)
         self.radius = radius
 
     def draw(self, screen):
