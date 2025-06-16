@@ -9,6 +9,7 @@ from constants import (
     # ASTEROID_MAX_RADIUS,
 )
 from player import Player
+from asteroid import Asteroid
 
 
 def main():
@@ -21,6 +22,10 @@ def main():
     # create groups
     updatables = pygame.sprite.Group()
     drawables = pygame.sprite.Group()
+    asteroids = pygame.sprite.Group()
+
+    # asteroid group assignment
+    Asteroid.containers = (asteroids, updatables, drawables)
 
     # player group assignment
     Player.containers = (updatables, drawables)
