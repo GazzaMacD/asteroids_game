@@ -1,4 +1,5 @@
 import pygame
+import sys
 
 from circleshape import CircleShape
 from constants import PLAYER_RADIUS, PLAYER_SPEED, PLAYER_TURN_SPEED
@@ -38,3 +39,10 @@ class Player(CircleShape):
     def move(self, dt):
         forward = pygame.Vector2(0, 1).rotate(self.rotation)
         self.position += forward * PLAYER_SPEED * dt
+
+    def collision(self, object):
+        distance = self.position.distance_to(object.position)
+        two_radiuses = self.radius + object.radius
+        if not distance > two_radiuses:
+            print("Game over!")
+            sys.exit(0)
