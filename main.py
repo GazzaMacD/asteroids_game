@@ -61,6 +61,11 @@ def main():
         for asteroid in asteroids:
             player.collision(asteroid)
 
+        # Shot
+        for asteroid in asteroids:
+            for shot in shots:
+                shot.collision(asteroid)
+
         # final
         pygame.display.flip()
         dt = clock.tick(60) / 1000

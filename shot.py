@@ -14,3 +14,10 @@ class Shot(CircleShape):
     def update(self, dt):
         forward = self.velocity * dt
         self.position += forward
+
+    def collision(self, object):
+        distance = self.position.distance_to(object.position)
+        two_radiuses = self.radius + object.radius
+        if not distance > two_radiuses:
+            object.kill()
+            self.kill()
