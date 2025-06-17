@@ -1,5 +1,4 @@
 import pygame
-import sys
 
 from circleshape import CircleShape
 from constants import (
@@ -55,8 +54,8 @@ class Player(CircleShape):
         distance = self.position.distance_to(object.position)
         two_radiuses = self.radius + object.radius
         if not distance > two_radiuses:
-            print("Game over!")
-            sys.exit(0)
+            return True
+        return False
 
     def shoot(self):
         if self.countdown > 0:

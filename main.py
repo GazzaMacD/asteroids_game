@@ -1,4 +1,5 @@
 import pygame
+import sys
 
 from constants import (
     SCREEN_WIDTH,
@@ -59,12 +60,16 @@ def main():
 
         # Collisions
         for asteroid in asteroids:
-            player.collision(asteroid)
+            if player.collision(asteroid):
+                print("Game over!")
+                sys.exit(0)
 
         # Shot
         for asteroid in asteroids:
             for shot in shots:
-                shot.collision(asteroid)
+                if shot.collision(asteroid):
+                    shot.kill()
+                    asteroid.split()
 
         # final
         pygame.display.flip()

@@ -19,5 +19,5 @@ class Shot(CircleShape):
         distance = self.position.distance_to(object.position)
         two_radiuses = self.radius + object.radius
         if not distance > two_radiuses:
-            object.kill()
+            object.split()
             self.kill()
